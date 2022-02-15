@@ -17,6 +17,7 @@ function storeData(e) {
 		existingBooks.push(book)
 	}
 	localStorage.setItem('book-data', JSON.stringify(existingBooks))
+	addBooks()
 }
 
 function addBooks(value) {
@@ -26,7 +27,7 @@ function addBooks(value) {
         <br>
         <label for="name">${value.title}</label>
         <br>
-        <label for="author">${value.title}</label>
+        <label for="author">${value.author}</label>
         <br>
         <button type="button" id="${counter}">Remove</button>
         <hr>
@@ -35,19 +36,13 @@ function addBooks(value) {
 	bookList.innerHTML += item
 }
 
-// function fillDatas() {
-// 	let getBooks = localStorage.getItem('book-data')
-// 	getBooks = JSON.parse(getBooks)
-// 	if (getBooks !== null) {
-// 		getBooks.forEach(value => {
-// 			addBooks(value)
-// 		})
-// 	}
-// }
-// fillDatas()
+function fillDatas() {
+	let getBooks = JSON.parse(localStorage.getItem('book-data'))
 
-// {
-/* form.elements.name.value = form.elements.author.value = '' */
-// }
-// addBooks(book)
-// storeData(book)
+	if (getBooks !== null && bookList.length > 0) {
+		getBooks.forEach(value => {
+			addBooks(value)
+		})
+	}
+}
+fillDatas()
