@@ -1,9 +1,9 @@
 const form = document.querySelector('#form')
 let counter = 0
 
-form.addEventListener('submit', storeData)
+form.addEventListener('submit', storeBooks)
 
-function storeData(e) {
+function storeBooks(e) {
 	e.preventDefault()
 	let existingBooks = JSON.parse(localStorage.getItem('book-data'))
 
@@ -17,32 +17,29 @@ function storeData(e) {
 		existingBooks.push(book)
 	}
 	localStorage.setItem('book-data', JSON.stringify(existingBooks))
-	addBooks()
+	fillBooks()
 }
 
-function addBooks(value) {
-	let bookList = document.querySelector('.book-list')
-	const item = `
+function fillBooks() {
+	let getBooks = JSON.parse(localStorage.getItem('book-data'))
+	if (getBooks !== null && getBooks.length > 0) {
+		document.querySelector('.book-list').innerHTML = getBooks
+			.map(
+				book =>
+					`
     <div class="book-item">
         <br>
-        <label for="name">${value.title}</label>
+        <label for="name">${book.title}</label>
         <br>
-        <label for="author">${value.author}</label>
+        <label for="author">${book.author}</label>
         <br>
         <button type="button" id="${counter}">Remove</button>
         <hr>
     </div>
-    `
-	bookList.innerHTML += item
-}
-
-function fillDatas() {
-	let getBooks = JSON.parse(localStorage.getItem('book-data'))
-
-	if (getBooks !== null && bookList.length > 0) {
-		getBooks.forEach(value => {
-			addBooks(value)
-		})
+    `,
+			)
+			.join('')
 	}
 }
-fillDatas()
+
+fillBooks()
