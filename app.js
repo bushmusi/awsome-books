@@ -14,6 +14,7 @@ function storeBooks(e) {
 	existingBooks = existingBooks === null ? [] : existingBooks
 
 	if (!(existingBooks.filter(book => book.title === title && book.author === author).length > 0)) {
+		book.counter = counter + 1
 		existingBooks.push(book)
 	}
 	localStorage.setItem('book-data', JSON.stringify(existingBooks))
@@ -28,7 +29,6 @@ function fillBooks() {
 				book =>
 					`
     <div class="book-item">
-        <br>
         <label for="name">${book.title}</label>
         <br>
         <label for="author">${book.author}</label>
