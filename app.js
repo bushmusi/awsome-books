@@ -1,58 +1,53 @@
-const form = document.getElementById('awesome-form');
-const book_coll = []
-let count = 0;
-function addBooks(value){
-    let bookList = document.querySelector('.book-list');
-    const item = `
+const form = document.querySelector('#form')
+let counter = 0
+
+form.addEventListener('submit', storeData)
+
+function storeData(e) {
+	e.preventDefault()
+	let existingBooks = JSON.parse(localStorage.getItem('book-data'))
+
+	const title = form.elements.name.value
+	const author = form.elements.author.value
+	const book = { title, author, counter }
+
+	existingBooks = existingBooks === null ? [] : existingBooks
+
+	if (!(existingBooks.filter(book => book.title === title && book.author === author).length > 0)) {
+		existingBooks.push(book)
+	}
+	localStorage.setItem('book-data', JSON.stringify(existingBooks))
+}
+
+function addBooks(value) {
+	let bookList = document.querySelector('.book-list')
+	const item = `
     <div class="book-item">
         <br>
-        <label for="name">${value.book_name}</label>
+        <label for="name">${value.title}</label>
         <br>
-        <label for="author">${value.author_name}</label>
+        <label for="author">${value.title}</label>
         <br>
-        <button type="button" id="${count}">Remove</button>
+        <button type="button" id="${counter}">Remove</button>
         <hr>
     </div>
-    `;
-    bookList.innerHTML += item
+    `
+	bookList.innerHTML += item
 }
 
-function storeData(value){
-    let old_data = localStorage.getItem('book-data');
-    if(old_data !== null)
-    {
-        old_data = JSON.parse(old_data)
-    }
-    else{
-        old_data = []
-    }
-    old_data.push(value)
-    localStorage.setItem('book-data',JSON.stringify(old_data))
-}
+// function fillDatas() {
+// 	let getBooks = localStorage.getItem('book-data')
+// 	getBooks = JSON.parse(getBooks)
+// 	if (getBooks !== null) {
+// 		getBooks.forEach(value => {
+// 			addBooks(value)
+// 		})
+// 	}
+// }
+// fillDatas()
 
-function fillDatas() {
-    let getBooks = localStorage.getItem('book-data');
-    getBooks = JSON.parse(getBooks);
-    if(getBooks !== null)
-    {
-        getBooks.forEach((value) => {
-            addBooks(value)
-        })
-    }
-}
-fillDatas()
-form.addEventListener('submit',(event) => {
-    event.preventDefault();
-    let book_name = form.elements.name.value;
-    let author_name = form.elements.author.value;
-    let book_obj = {
-        book_name,
-        author_name,
-        count: count
-    };
-    count++
-    book_coll.push(book_obj);
-    form.elements.name.value = form.elements.author.value = ''
-    addBooks(book_obj)
-    storeData(book_obj)
-})
+// {
+/* form.elements.name.value = form.elements.author.value = '' */
+// }
+// addBooks(book)
+// storeData(book)
