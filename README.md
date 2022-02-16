@@ -15,7 +15,7 @@ In this project, you will be using javascript arrays and object to store the lis
 
 ## Live Demo
 
-[Live Demo Link](https://bushra.github.io/awesome-books/)
+[Live Demo Link](https://bushmusi.github.io/awsome-books/)
 
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
@@ -28,9 +28,9 @@ To get a local copy up and running follow these simple example steps.
 - Create a github repository.
 
 ## Setup
-- git clone https://github.com/bushra/awsome-books.git
+- git clone https://github.com/bushmusi/awsome-books.git
 - cd young-tech-conference/
--Follow the HTML-CSS linter confuguration to docs to setup linters [Link to Microverse linter docs](https://github.com/vickymarz/linters-config/tree/master/html-css-js)
+-Follow the HTML-CSS linter confuguration to docs to setup linters [Link to Microverse linter docs](https://github.com/bushmusi/linters-config/tree/master/html-css-js)
 
 
 ## Run tests
@@ -50,11 +50,12 @@ For tracking linters errors locally, you need to follow these steps:
 
 ## Author
 
-👤 **Okoroji Victor aka Vickymarz**
+👤 **Victor, Bushra and Beyk**
 
-- GitHub: [@githubhandle]()
-
-- LinkedIn: [LinkedIn]()
+- GitHub: 
+    - [Bushra](www.github.com/bushmusi)
+    - [Victor](www.github.com/vickymarz)
+    - [Beyk](www.github.com/beyk)
 
 
 ## 🤝 Contributing
