@@ -1,7 +1,7 @@
 const form = document.querySelector('#form');
 
 class Book {
-  constructor(title,author){
+  constructor(title,author) {
     this.title = title;
     this.author = author;
   }
@@ -17,7 +17,8 @@ class Book {
     targetElement.remove();
   }
 
-  fillBooks(){
+
+  fillBooks() {
     const strBookList = JSON.parse(localStorage.getItem('book-data'))
     if (strBookList !== null && strBookList.length > 0) {
       document.querySelector('.book-list').innerHTML = strBookList
@@ -47,7 +48,7 @@ class Book {
     
   }
 
-  storeBooks(e) {
+  storeBooks = (e) => {
     e.preventDefault();
     let existingBooks = JSON.parse(localStorage.getItem('book-data'));
     const title = form.elements.name.value;
