@@ -14,6 +14,7 @@ removeBook = (val) => {
   localStorage.setItem('book-data', JSON.stringify(bookList));
   const targetElement = document.getElementById(`item-${id}`);
   targetElement.remove();
+  this.fillBooks();
 }
 
 fillBooks() {
