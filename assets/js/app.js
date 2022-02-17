@@ -19,16 +19,20 @@ removeBook = (val) => {
 fillBooks() {
   const strBookList = JSON.parse(localStorage.getItem('book-data'));
   if (strBookList !== null && strBookList.length > 0) {
-    document.querySelector('table').innerHTML = strBookList
-      .map(
-        (book, index) => `
-<tr class="book-item" id="item-${index}">
-<td>"${book.title}" by ${book.author} </td>
-<td><button type="button" id="btn-${index}" class="remove-btn">Remove</button> </td>
-</tr>
-`,
-      )
-      .join('');
+    const table = document.querySelector('table');
+    table.innerHTML = '';
+    strBookList.forEach((book, index) => {
+      const tableRow = document.createElement('tr');
+      tableRow.className = 'book-item';
+      tableRow.id = `item-${index}`;
+      table.appendChild(tableRow);
+      const tableDataDetail = document.createElement('td');
+      tableDataDetail.innerText = `"${book.title}" by ${book.author} `;
+      const tableDatailBtn = document.createElement('td');
+      tableDatailBtn.innerHTML = `<button type="button" id="btn-${index}" class="remove-btn">Remove</button>`;
+      tableRow.appendChild(tableDataDetail);
+      tableRow.appendChild(tableDatailBtn);
+    });
 
     document.querySelectorAll('.remove-btn').forEach((val) => {
       val.addEventListener('click', (event) => {
