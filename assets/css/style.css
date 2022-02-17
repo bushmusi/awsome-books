@@ -23,6 +23,7 @@ html {
   font-style: normal;
   font-weight: normal;
 }
+
 ul {
   list-style: none;
 }
@@ -124,6 +125,7 @@ footer {
 .info-contact {
   margin: 50px;
 }
+
 .info-contact > ul {
   list-style: circle;
   margin: auto;
@@ -193,8 +195,8 @@ tr:nth-child(even) {
   color: blue;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   #form {
-  width: 50%;
-}
+    width: 50%;
+  }
 }
