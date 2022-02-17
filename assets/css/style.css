@@ -70,6 +70,13 @@ nav > .right-nav {
   color: var(--blue);
 }
 
+.current-date {
+  display: block;
+  float: right;
+  margin: var(--margin-nav);
+  margin-top: 5px;
+}
+
 footer {
   position: fixed;
   bottom: 0;
@@ -88,20 +95,6 @@ footer {
   border: solid 3px var(--black);
 }
 
-
-
-
-
-
-
-
-.current-date {
-  display: block;
-  float: right;
-  margin: var(--margin-nav);
-  margin-top: 5px;
-}
-
 .main-container {
   margin-top: 30px;
 }
@@ -109,7 +102,7 @@ footer {
 .main-container h1 {
   text-align: center;
   font-size: 28px;
-  padding: 20px 0;
+  padding-top: 20px;
 }
 
 .book-list {
