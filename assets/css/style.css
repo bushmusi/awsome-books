@@ -23,9 +23,8 @@ html {
   font-style: normal;
   font-weight: normal;
 }
-
-li {
-  list-style-type: none;
+ul {
+  list-style: none;
 }
 
 a {
@@ -122,10 +121,13 @@ footer {
   width: 50vw;
 }
 
+.info-contact {
+  margin: 50px;
+}
 .info-contact > ul {
   list-style: circle;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
 }
 
 table {
@@ -162,7 +164,7 @@ tr:nth-child(even) {
 }
 
 #form {
-  max-width: 250px;
+  width: 30%;
   margin: 30px auto;
 }
 
@@ -189,4 +191,10 @@ tr:nth-child(even) {
 
 #home {
   color: blue;
+}
+
+@media only screen and (max-width:768px) {
+  #form {
+  width: 50%;
+}
 }

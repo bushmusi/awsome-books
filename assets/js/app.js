@@ -66,12 +66,12 @@ class Book {
 	}
 
 	updateSection = item => {
-		const linkList = document.querySelectorAll('.nav-item')
+    const linkList = document.querySelectorAll('.nav-item')
 		const containerTitles = ['All awesome books', 'Add a new book', 'Contact information']
 		linkList.forEach(node => {
 			node.style.color = '#000'
 		})
-		item.style.color = 'blue'
+    item.style.color = 'blue'
 		const activeSection = document.querySelector(`.${item.id}`)
 		const contentList = document.querySelectorAll('.content')
 		let titleIndex = 0
@@ -83,7 +83,7 @@ class Book {
 				titleIndex = index
 			}
 		})
-		document.getElementById('content-tilte').innerHTML = containerTitles[titleIndex]
+		document.getElementById('content-title').innerHTML = containerTitles[titleIndex]
 		activeSection.style.display = 'flex'
 	}
 }
