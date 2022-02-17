@@ -2,9 +2,10 @@
 @import url("https://fonts.cdnfonts.com/css/Lato");
 
 :root {
-  --black: #00000075;
+  --gray: #00000075;
   --margin-nav: 1%;
-  --font-fam: 'Lato', sans-serif;
+  --black: #000;
+  --blue: blue;
 }
 
 *,
@@ -23,19 +24,50 @@ html {
   font-weight: normal;
 }
 
-ul {
-  list-style: none;
+li {
+  list-style-type: none;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--black);
 }
 
 body {
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
+}
+
+nav {
+  display: flex;
+  margin: var(--margin-nav);
+  margin-bottom: 0;
+  padding: var(--margin-nav);
+  border: solid 3px var(--gray);
+}
+
+nav > .left-nav {
+  flex: 1;
+}
+
+.page-title {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+nav > .right-nav {
+  display: flex;
+  column-gap: 10px;
+}
+
+.right-nav > .border-item {
+  padding-right: 10px;
+  border-right: solid 1px var(--black);
+}
+
+.right-nav li a:hover {
+  color: var(--blue);
 }
 
 footer {
@@ -56,31 +88,18 @@ footer {
   border: solid 3px var(--black);
 }
 
-nav {
-  display: flex;
-  margin: var(--margin-nav);
-  padding: var(--margin-nav);
-  border: solid 3px var(--black);
-}
 
-nav > .left-nav {
-  flex: 1;
-}
 
-nav > ul {
-  display: flex;
-  column-gap: 10px;
-}
 
-.right-nav > .border-item {
-  padding-right: 10px;
-  border-right: solid 1px #000;
-}
+
+
+
 
 .current-date {
   display: block;
   float: right;
   margin: var(--margin-nav);
+  margin-top: 5px;
 }
 
 .main-container {
