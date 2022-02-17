@@ -1,4 +1,9 @@
 const form = document.querySelector('#form');
+const linkListTitle = [
+  'All awesome books',
+  "Add a new book",
+  "Contact Information"
+]
 
 class Book {
   constructor(title, author) {
@@ -20,7 +25,7 @@ removeBook = (val) => {
 fillBooks() {
   const strBookList = JSON.parse(localStorage.getItem('book-data'));
   if (strBookList !== null && strBookList.length > 0) {
-    document.querySelector('.book-list').innerHTML = strBookList
+    document.querySelector('table').innerHTML = strBookList
       .map(
         (book, index) => `
 <tr class="book-item" id="item-${index}">
@@ -38,7 +43,7 @@ fillBooks() {
       });
     });
   } else {
-    document.querySelector('.book-list').innerHTML = '';
+    document.querySelector('table').innerHTML = '';
   }
 }
 
@@ -60,6 +65,31 @@ storeBooks = (e) => {
   form.elements.name.value = '';
   form.elements.author.value = '';
   this.fillBooks();
+  const bookListNode = document.querySelector('#book-list')
+  this.updateSection(bookListNode);
+
+}
+
+updateSection = (item) => {
+  const linkList = document.querySelectorAll('.nav-item')
+  const containerTitles = ['All awesome books','Add a new book','Contact information']
+  linkList.forEach((node) => {
+    node.style.color = "#000"
+  })
+  item.style.color = "blue";
+  const activeSection = document.querySelector(`.${item.id}`)
+  const contentList = document.querySelectorAll('.content');
+  let titleIndex = 0;
+  contentList.forEach((val,index) =>{
+    val.style.display = 'none';
+    let className = val.className
+    className = className.split(' ');
+    if(className[0] === item.id){
+      titleIndex = index
+    }
+  });
+  document.getElementById('content-tilte').innerHTML = containerTitles[titleIndex]
+  activeSection.style.display = 'flex'
 }
 }
 
@@ -67,3 +97,14 @@ const bookObj = new Book();
 bookObj.fillBooks();
 
 form.addEventListener('submit', bookObj.storeBooks);
+
+function diplayContainer(item) {
+  const disObj = new Book()
+  disObj.updateSection(item);
+}
+
+function displayDate(){
+  document.getElementById('time-val').innerHTML = Date()
+}
+
+displayDate()

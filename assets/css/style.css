@@ -1,5 +1,11 @@
-/* @import url("https://fonts.cdnfonts.com/css/cocogoose");
-@import url("https://fonts.cdnfonts.com/css/Lato"); */
+@import url("https://fonts.cdnfonts.com/css/cocogoose");
+@import url("https://fonts.cdnfonts.com/css/Lato");
+
+:root {
+  --black: #00000075;
+  --margin-nav: 1%;
+  --font-fam: 'Lato', sans-serif;
+}
 
 *,
 ::before,
@@ -11,16 +17,74 @@
 }
 
 html {
-  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
 }
 
 body {
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 99vw;
+  height: auto;
+  overflow-y: hidden;
+  padding: 1%;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: flex-start;
+  padding: 1%;
+  border: solid 3px var(--black);
+}
+
+nav {
+  display: flex;
+  margin: var(--margin-nav);
+  padding: var(--margin-nav);
+  border: solid 3px var(--black);
+}
+
+nav > .left-nav {
+  flex: 1;
+}
+
+nav > ul {
+  display: flex;
+  column-gap: 10px;
+}
+
+.right-nav > .border-item {
+  padding-right: 10px;
+  border-right: solid 1px #000;
+}
+
+.current-date {
+  display: block;
+  float: right;
+  margin: var(--margin-nav);
+}
+
+.main-container {
+  margin-top: 30px;
 }
 
 .main-container h1 {
@@ -30,6 +94,29 @@ body {
 }
 
 .book-list {
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  overflow-y: scroll;
+}
+
+.contact-info {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contact-info > * {
+  width: 50vw;
+}
+
+.info-contact > ul {
+  list-style: circle;
+  margin: auto;
+  padding: 20px;
+}
+
+table {
   border-collapse: collapse;
   width: 60%;
   margin: 30px auto 10px auto;
@@ -58,15 +145,8 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 15%;
-  margin: auto;
-  height: 3px;
-  border-radius: 10px;
-  background-color: black;
+.form-container {
+  display: none;
 }
 
 #form {
@@ -93,4 +173,8 @@ tr:nth-child(even) {
   border-radius: 5px;
   border: none;
   color: white;
+}
+
+#home {
+  color: blue;
 }
